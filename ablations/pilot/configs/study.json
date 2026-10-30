@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "design": "kinetic_binding_reaction_sigreg",
+  "loss_terms": [
+    "kinetic",
+    "jepa",
+    "jepa_delta",
+    "jepa_contrastive",
+    "action_decorrelation",
+    "sigreg",
+    "vrex",
+    "binding_aux",
+    "binding_jepa",
+    "binding_jepa_delta",
+    "binding_jepa_contrastive",
+    "kcat_tail",
+    "kcat_mechanism_ranking",
+    "kcat_reaction_ranking",
+    "km_p1",
+    "ec_aux"
+  ],
+  "primary_base": "kinetic_only/backbone",
+  "seeds": [
+    0,
+    1
+  ],
+  "protocols": [
+    "random"
+  ],
+  "split_seed": 20261016,
+  "epochs": 150,
+  "scheduler_epochs": 150,
+  "early_stop_patience": 0,
+  "batch_size": 256,
+  "eval_batch_size": 128,
+  "init_lr": 6e-05,
+  "max_lr": 0.00035,
+  "final_lr": 6e-06,
+  "warmup_epochs": 3,
+  "weight_decay": 8e-05,
+  "grad_clip": 1.0,
+  "max_residues": 1024,
+  "selection": "macro_mae_minus_0.10_r2_minus_0.001_p1mag",
+  "retrieval_epochs": 20,
+  "retrieval_lr": 0.001,
+  "retrieval_weight_decay": 0.0001,
+  "retrieval_robust_weight": 0.15,
+  "max_blend": 0.5,
+  "bootstrap_replicates": 2000,
+  "variants": [
+    "kinetic_only",
+    "kinetic_plus_binding_jepa",
+    "kinetic_plus_reaction_jepa",
+    "kinetic_plus_jepa",
+    "kinetic_plus_jepa_sigreg",
+    "full"
+  ],
+  "primary_contrasts": [
+    {
+      "name": "binding_added",
+      "a": "kinetic_plus_binding_jepa",
+      "b": "kinetic_only"
+    },
+    {
+      "name": "reaction_added",
+      "a": "kinetic_plus_reaction_jepa",
+      "b": "kinetic_only"
+    },
+    {
+      "name": "reaction_after_binding",
+      "a": "kinetic_plus_jepa",
+      "b": "kinetic_plus_binding_jepa"
+    },
+    {
+      "name": "binding_after_reaction",
+      "a": "kinetic_plus_jepa",
+      "b": "kinetic_plus_reaction_jepa"
+    },
+    {
+      "name": "sigreg_after_jepa",
+      "a": "kinetic_plus_jepa_sigreg",
+      "b": "kinetic_plus_jepa"
+    },
+    {
+      "name": "remaining_auxiliaries",
+      "a": "full",
+      "b": "kinetic_plus_jepa_sigreg"
+    },
+    {
+      "name": "full_vs_kinetic",
+      "a": "full",
+      "b": "kinetic_only"
+    }
+  ],
+  "retrieval_backbones": [
+    "full"
+  ],
+  "retrieval_variants": [
+    {
+      "name": "full",
+      "learn": "all"
+    },
+    {
+      "name": "none",
+      "learn": "none"
+    },
+    {
+      "name": "exact_label_mean",
+      "learn": "none",
+      "estimate": "mean"
+    }
+  ]
+}

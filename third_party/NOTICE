@@ -1,0 +1,4 @@
+LANCE/dmpnn.py and related data utilities contain code adapted from CatPred.
+Source: https://github.com/maranasgroup/CatPred
+The CatPred MIT license is reproduced in CatPred.LICENSE.
+The same attribution applies to copies under ablations/*/runtime/.

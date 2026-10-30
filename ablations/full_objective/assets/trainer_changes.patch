@@ -1,0 +1,58 @@
+--- original/train.py
++++ runtime/LANCE/train.py
+@@ -57,6 +57,7 @@
+ )
+ from LANCE.losses import LANCELossWeights, lance_total_loss
+ from LANCE.model import LANCEConfig, LANCEModel
++from LANCE import recovery
+ 
+ 
+ # Exact scheduler structure from CatPred's NoamLR.  CatPred warms up linearly
+@@ -792,7 +793,10 @@
+     global_step = 0
+     use_amp = device.type == "cuda"
+ 
+-    for epoch in range(args.epochs):
++    start, best, epochs_without_improvement, global_step = recovery.restore(
++        run_dir / "checkpoint_latest.pt", model, optimizer, scheduler, train_loader, args
++    )
++    for epoch in range(start, args.epochs):
+         model.train()
+         if args.vrex_weight > 0:
+             if epoch < args.vrex_ramp_start:
+@@ -851,10 +855,9 @@
+                 loss = loss_parts["loss"]
+ 
+             if not torch.isfinite(loss):
+-                optimizer.zero_grad(set_to_none=True)
+-                continue
++                raise FloatingPointError(f"Nonfinite loss at epoch {epoch}, batch {batch_index}")
+             loss.backward()
+-            torch.nn.utils.clip_grad_norm_(model.parameters(), args.grad_clip)
++            torch.nn.utils.clip_grad_norm_(model.parameters(), args.grad_clip, error_if_nonfinite=True)
+             optimizer.step()
+             scheduler.step()
+ 
+@@ -923,14 +926,19 @@
+         write_jsonl_row(metrics_path, epoch_metrics)
+         print(json.dumps(epoch_metrics, sort_keys=True), flush=True)
+ 
+-        save_checkpoint(run_dir / "checkpoint_latest.pt", model, optimizer, epoch, epoch_metrics, scalers, args)
+         score = float(epoch_metrics["val_score"])
+-        if score < best:
++        if not math.isfinite(score):
++            raise FloatingPointError("Nonfinite checkpoint selection score")
++        improved = score < best
++        if improved:
+             best = score
+             epochs_without_improvement = 0
+-            save_checkpoint(run_dir / "checkpoint_best.pt", model, optimizer, epoch, epoch_metrics, scalers, args)
+         else:
+             epochs_without_improvement += 1
++
++        recovery.commit(run_dir, model, optimizer, scheduler, train_loader, epoch,
++                        epoch_metrics, scalers, args, best, epochs_without_improvement,
++                        global_step, improved)
+ 
+         if args.early_stop_patience > 0 and epochs_without_improvement >= args.early_stop_patience:
+             row = {"event": "early_stop", "epoch": epoch, "best_val_score": best, "patience": args.early_stop_patience}

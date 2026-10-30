@@ -1,0 +1,38 @@
+[
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_only",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_plus_binding_jepa",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_plus_reaction_jepa",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_plus_jepa",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_plus_jepa_sigreg",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "full",
+    "parameters": 22530154
+  }
+]

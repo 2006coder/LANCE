@@ -1,0 +1,263 @@
+{
+  "args": {
+    "batch_size": 256,
+    "data_root": "/path/to/AI_Bio/data/raw/CatPred-DB",
+    "device": "cuda",
+    "early_stop_patience": 6,
+    "epochs": 20,
+    "esm_cache": "/path/to/AI_Bio/data/new_approach/esmpp_large_per_residue.pt",
+    "eval_batch_size": 128,
+    "fingerprint_dim": 128,
+    "fixed_blend_alpha_seen": 0.13600897870157685,
+    "fixed_blend_alpha_unseen": 0.5,
+    "grad_clip": 1.0,
+    "incumbent_checkpoint": "/path/to/AI_Bio/runs/lance/lance4_rate_trainval_eng_h100x1_2seed_b256_20260716_seed5/checkpoint_best.pt",
+    "incumbent_split": "trainval",
+    "learn_metric": true,
+    "learning_rate": 0.001,
+    "max_blend_alpha": 0.5,
+    "max_residues": 1024,
+    "memory_split": "trainval",
+    "num_workers": 0,
+    "output_dir": "/path/to/AI_Bio/runs/lance",
+    "promotion_recipe": "/path/to/AI_Bio/runs/lance/lance7r_screen_20260724r1_summary/promotion_recipe.json",
+    "protein_key_dim": 64,
+    "protocol": "fixed-final",
+    "retrieval_cluster_level": 99,
+    "retrieval_mode": "exact",
+    "retrieval_residual_limit": 0.5,
+    "retrieval_temperature": 0.2,
+    "robust_loss_weight": 0.15,
+    "run_name": "lance7r_exact_nca_trainval_20260724f1_seed5",
+    "screen_variant": "exact_nca",
+    "seed": 5,
+    "topk_approx": 16,
+    "topk_exact": 8,
+    "weight_decay": 0.0001
+  },
+  "experiment_family": "LANCE-7R",
+  "incumbent_checkpoint": "/path/to/AI_Bio/runs/lance/lance4_rate_trainval_eng_h100x1_2seed_b256_20260716_seed5/checkpoint_best.pt",
+  "incumbent_sha256": "ca3a27dca6999eea41b068bbc9c24a14cac0f56c91b663aec7cfa6308ea583da",
+  "memory": {
+    "cluster_exclusion_level": 99,
+    "fingerprint_dim": 128,
+    "protein_key_dim": 64,
+    "rows": 20833,
+    "source_split": "trainval",
+    "uses_products": false
+  },
+  "model_config": {
+    "architecture": "lance7r_label_anchored_residual",
+    "blend_alpha": 0.13600897789001465,
+    "incumbent_config": {
+      "action_dim": 64,
+      "binding_jepa_exclude_kcat": true,
+      "condition_dim": 4,
+      "dmpnn_depth": 3,
+      "dmpnn_dropout": 0.0,
+      "dmpnn_hidden": 300,
+      "dropout": 0.15,
+      "ec_num_classes": 8,
+      "focus_heads": 4,
+      "focus_temperature": 1.0,
+      "hidden_dim": 1024,
+      "interface_heads": 8,
+      "model_dim": 512,
+      "n_substrate_desc": 8,
+      "num_interface_queries": 4,
+      "num_tasks": 3,
+      "protein_dim": 1152,
+      "stop_jepa_target": true,
+      "task_action_adapter_dim": 256,
+      "use_binding_jepa": true,
+      "use_condition_features": true,
+      "use_ec_aux": true,
+      "use_gaussian_heads": true,
+      "use_kcat_global_rate_context": true,
+      "use_mechanistic_kcat_prior": false,
+      "use_soft_catalytic_focus": false,
+      "use_task_film": false,
+      "use_task_interface_gate": true,
+      "use_task_residual_actions": true,
+      "use_task_specific_actions": false
+    },
+    "memory_size": 20833,
+    "retrieval_config": {
+      "fingerprint_dim": 128,
+      "learn_metric": true,
+      "mode": "exact",
+      "protein_key_dim": 64,
+      "residual_limit": 0.5,
+      "temperature": 0.2,
+      "topk_approx": 16,
+      "topk_exact": 8
+    },
+    "unseen_blend_alpha": 0.5
+  },
+  "promotion_recipe": {
+    "blend": {
+      "maximum": 0.5,
+      "rule": "least-squares convex blend on selected three-seed validation ensemble",
+      "seen_cluster": 0.13600897870157685,
+      "unseen_cluster": 0.5
+    },
+    "calibration": {
+      "dataset": "kcat-random_val.csv",
+      "members": [
+        {
+          "checkpoint": "/path/to/AI_Bio/runs/lance/lance7r_screen_exact_nca_strict_20260724r1_seed0/checkpoint_best.pt",
+          "checkpoint_sha256": "c6496d90b4fe2fed72676d5e182bb78138650899b47d5eab417257a8940fbd39",
+          "seed": 0,
+          "seen_alpha": 0.16003369298882456,
+          "selected_epoch": 18,
+          "unseen_alpha": 0.5
+        },
+        {
+          "checkpoint": "/path/to/AI_Bio/runs/lance/lance7r_screen_exact_nca_strict_20260724r1_seed1/checkpoint_best.pt",
+          "checkpoint_sha256": "14476eaf1cbfd3f2da6220475c01fcaa77163c6f02545b4852ba6f95bc59bcbe",
+          "seed": 1,
+          "seen_alpha": 0.14863314593771254,
+          "selected_epoch": 19,
+          "unseen_alpha": 0.5
+        },
+        {
+          "checkpoint": "/path/to/AI_Bio/runs/lance/lance7r_screen_exact_nca_strict_20260724r1_seed2/checkpoint_best.pt",
+          "checkpoint_sha256": "33f2d3a4fd258b82463578045941dfd0d434bcbd123957c96f419439701243d2",
+          "seed": 2,
+          "seen_alpha": 0.186550645998386,
+          "selected_epoch": 19,
+          "unseen_alpha": 0.5
+        }
+      ],
+      "metrics": {
+        "all": {
+          "base": {
+            "mae": 0.6606004756118499,
+            "n": 2085,
+            "p1mag": 79.52038369304556,
+            "r2": 0.6335149276640505,
+            "rmse": 1.0047239255932592
+          },
+          "candidate": {
+            "mae": 0.6635243021663126,
+            "n": 2085,
+            "p1mag": 79.76019184652277,
+            "r2": 0.6436913354081274,
+            "rmse": 0.9906763404552401
+          },
+          "mae_gain": -0.0029238265544627717,
+          "r2_gain": 0.01017640774407691,
+          "retrieval": {
+            "mae": 1.05393083860944,
+            "n": 2085,
+            "p1mag": 59.18465227817747,
+            "r2": 0.2700741845232544,
+            "rmse": 1.4179403500323298
+          },
+          "retrieval_available_fraction": 0.6517985611510791
+        },
+        "seen99": {
+          "base": {
+            "mae": 0.6006289380291062,
+            "n": 1764,
+            "p1mag": 82.08616780045351,
+            "r2": 0.6748822919639963,
+            "rmse": 0.9260948247181051
+          },
+          "candidate": {
+            "mae": 0.6054053510825512,
+            "n": 1764,
+            "p1mag": 82.36961451247166,
+            "r2": 0.6800733837760141,
+            "rmse": 0.9186716856991731
+          },
+          "mae_gain": -0.0047764130534450056,
+          "r2_gain": 0.005191091812017823,
+          "retrieval": {
+            "mae": 1.0520708445495142,
+            "n": 1764,
+            "p1mag": 59.24036281179138,
+            "r2": 0.23865781604205294,
+            "rmse": 1.4171802512455318
+          },
+          "retrieval_available_fraction": 0.6349206349206349
+        },
+        "unseen99": {
+          "base": {
+            "mae": 0.9901636914871266,
+            "n": 321,
+            "p1mag": 65.42056074766354,
+            "r2": 0.4544039020942593,
+            "rmse": 1.3578522441021408
+          },
+          "candidate": {
+            "mae": 0.9829069492434398,
+            "n": 321,
+            "p1mag": 65.42056074766354,
+            "r2": 0.48601196194305385,
+            "rmse": 1.317933182076691
+          },
+          "mae_gain": 0.007256742243686776,
+          "r2_gain": 0.031608059848794556,
+          "retrieval": {
+            "mae": 1.0641521143780124,
+            "n": 321,
+            "p1mag": 58.87850467289719,
+            "r2": 0.40154339709410525,
+            "rmse": 1.4221100909565596
+          },
+          "retrieval_available_fraction": 0.7445482866043613
+        }
+      },
+      "rows": 2085,
+      "seen99_rows": 1764,
+      "unseen99_rows": 321
+    },
+    "experiment_family": "LANCE-7R",
+    "promote_to_trainval": true,
+    "protocol": "lance7r_strict_promotion_v1",
+    "retrieval_config": {
+      "fingerprint_dim": 128,
+      "learn_metric": true,
+      "mode": "exact",
+      "protein_key_dim": 64,
+      "residual_limit": 0.5,
+      "temperature": 0.2,
+      "topk_approx": 16,
+      "topk_exact": 8
+    },
+    "screen_summary": "/path/to/AI_Bio/runs/lance/lance7r_screen_20260724r1_summary/screen_summary.json",
+    "screen_summary_sha256": "07adfe20760fe96ed73a675317ffe239ac94bb918042c5e4b7b0af021469fdaa",
+    "selected_variant": "exact_nca",
+    "selection_evidence": {
+      "mean_blend_alpha": 0.16507249713611777,
+      "mean_candidate_r2": 0.4397268812749166,
+      "mean_mae_gain": 0.014909278509326107,
+      "mean_r2_gain": 0.02435704486190704,
+      "mean_unseen99_available_fraction": 0.7445482866043612,
+      "min_r2_gain": 0.0169123184199802,
+      "passes_screen": true,
+      "positive_r2_seeds": 3,
+      "seeds": 3
+    },
+    "training_config": {
+      "epoch_rule": "median(best_screen_epoch_plus_one)",
+      "epochs": 20,
+      "grad_clip": 1.0,
+      "learning_rate": 0.001,
+      "max_residues": 1024,
+      "retrieval_cluster_level": 99,
+      "robust_loss_weight": 0.15,
+      "selected_member_epochs": [
+        19,
+        20,
+        20
+      ],
+      "weight_decay": 0.0001
+    },
+    "uses_heldout_or_ood_labels": false
+  },
+  "promotion_recipe_sha256": "87bcef1d5ab61a90bf32dbcb24854d314c4095ce2e03d54fe62401e14d20554e",
+  "protocol": "fixed-final",
+  "trainable_parameters": 406
+}

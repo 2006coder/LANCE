@@ -1,0 +1,386 @@
+[
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "full",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_reaction_loss",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_binding_loss",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_jepa_losses",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_sigreg",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_jepa_no_sigreg",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_products",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "shuffled_products",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_binding_branch",
+    "parameters": 20428394
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_state_losses",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_delta_losses",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_contrastive_losses",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_stop_product_target",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_action_decorrelation",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_descriptor_loss",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_ec_loss",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_ranking",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_cohort_pairs",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_ranking_no_cohort_pairs",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_km_boundary",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_only",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_cross_attention",
+    "parameters": 20427879
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "pooled_fusion_matched",
+    "parameters": 22529946
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_task_gate",
+    "parameters": 22530151
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_task_adapter",
+    "parameters": 22330346
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "task_specific_actions",
+    "parameters": 31139050
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "one_action",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_actions",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_actions_kinetic_only",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_binding_action",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_catalytic_action",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "action_16",
+    "parameters": 22277770
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "action_256",
+    "parameters": 23539690
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_conditions",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "condition_presence_only",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_global_bypass",
+    "parameters": 20746217
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "mean_protein_only",
+    "parameters": 22193128
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "pooled_residue_input",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "nll",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "mse",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 512,
+    "model_dim": 256,
+    "name": "half_width",
+    "parameters": 6457450
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "late_fusion_matched",
+    "parameters": 22532776
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "supervised_cross_attention_matched",
+    "parameters": 22529935
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_plus_jepa",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_plus_sigreg",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_plus_jepa_sigreg",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "single_kcat",
+    "parameters": 16220262
+  },
+  {
+    "hidden_dim": 677,
+    "model_dim": 328,
+    "name": "single_budget_kcat",
+    "parameters": 7510929
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "single_km",
+    "parameters": 16220262
+  },
+  {
+    "hidden_dim": 677,
+    "model_dim": 328,
+    "name": "single_budget_km",
+    "parameters": 7510929
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "single_ki",
+    "parameters": 15169638
+  },
+  {
+    "hidden_dim": 684,
+    "model_dim": 344,
+    "name": "single_budget_ki",
+    "parameters": 7507754
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_temperature",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_ph",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "no_bond_updates",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "mean_molecule_only",
+    "parameters": 22266985
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "full__lr_half",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "full__lr_double",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_only__lr_half",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "kinetic_only__lr_double",
+    "parameters": 22530154
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "late_fusion_matched__lr_half",
+    "parameters": 22532776
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "late_fusion_matched__lr_double",
+    "parameters": 22532776
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "supervised_cross_attention_matched__lr_half",
+    "parameters": 22529935
+  },
+  {
+    "hidden_dim": 1024,
+    "model_dim": 512,
+    "name": "supervised_cross_attention_matched__lr_double",
+    "parameters": 22529935
+  }
+]

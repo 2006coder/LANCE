@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "protocols": [
+    "random",
+    "cluster60"
+  ],
+  "split_seed": 20261016,
+  "epochs": 150,
+  "scheduler_epochs": 150,
+  "early_stop_patience": 0,
+  "batch_size": 256,
+  "eval_batch_size": 128,
+  "init_lr": 6e-05,
+  "max_lr": 0.00035,
+  "final_lr": 6e-06,
+  "warmup_epochs": 3,
+  "weight_decay": 8e-05,
+  "grad_clip": 1.0,
+  "max_residues": 1024,
+  "selection": "macro_mae_minus_0.10_r2_minus_0.001_p1mag",
+  "retrieval_epochs": 20,
+  "retrieval_lr": 0.001,
+  "retrieval_weight_decay": 0.0001,
+  "retrieval_robust_weight": 0.15,
+  "max_blend": 0.5,
+  "bootstrap_replicates": 2000,
+  "variants": [
+    "full",
+    "no_reaction_loss",
+    "no_binding_loss",
+    "no_jepa_losses",
+    "no_sigreg",
+    "no_jepa_no_sigreg",
+    "no_products",
+    "shuffled_products",
+    "no_binding_branch",
+    "no_state_losses",
+    "no_delta_losses",
+    "no_contrastive_losses",
+    "no_stop_product_target",
+    "no_action_decorrelation",
+    "no_descriptor_loss",
+    "no_ec_loss",
+    "no_ranking",
+    "no_cohort_pairs",
+    "no_ranking_no_cohort_pairs",
+    "no_km_boundary",
+    "kinetic_only",
+    "no_cross_attention",
+    "pooled_fusion_matched",
+    "no_task_gate",
+    "no_task_adapter",
+    "task_specific_actions",
+    "one_action",
+    "no_actions",
+    "no_actions_kinetic_only",
+    "no_binding_action",
+    "no_catalytic_action",
+    "action_16",
+    "action_256",
+    "no_conditions",
+    "condition_presence_only",
+    "no_global_bypass",
+    "mean_protein_only",
+    "pooled_residue_input",
+    "nll",
+    "mse",
+    "half_width",
+    "late_fusion_matched",
+    "supervised_cross_attention_matched",
+    "kinetic_plus_jepa",
+    "kinetic_plus_sigreg",
+    "kinetic_plus_jepa_sigreg",
+    "single_kcat",
+    "single_budget_kcat",
+    "single_km",
+    "single_budget_km",
+    "single_ki",
+    "single_budget_ki",
+    "no_temperature",
+    "no_ph",
+    "no_bond_updates",
+    "mean_molecule_only",
+    "full__lr_half",
+    "full__lr_double",
+    "kinetic_only__lr_half",
+    "kinetic_only__lr_double",
+    "late_fusion_matched__lr_half",
+    "late_fusion_matched__lr_double",
+    "supervised_cross_attention_matched__lr_half",
+    "supervised_cross_attention_matched__lr_double"
+  ],
+  "retrieval_variants": [
+    {
+      "name": "full",
+      "learn": "all"
+    },
+    {
+      "name": "none",
+      "learn": "none"
+    },
+    {
+      "name": "exact_label_mean",
+      "learn": "none",
+      "estimate": "mean"
+    },
+    {
+      "name": "fixed_heuristic",
+      "learn": "none"
+    },
+    {
+      "name": "metric_only",
+      "learn": "metric"
+    },
+    {
+      "name": "residual_only",
+      "learn": "residual"
+    },
+    {
+      "name": "channel_only",
+      "learn": "channel"
+    },
+    {
+      "name": "no_residual",
+      "learn": "metric_channels"
+    },
+    {
+      "name": "strict_exact",
+      "learn": "all",
+      "strict_exact": true
+    },
+    {
+      "name": "dual",
+      "learn": "all",
+      "mode": "dual"
+    },
+    {
+      "name": "no_shrinkage",
+      "learn": "all",
+      "no_shrinkage": true
+    },
+    {
+      "name": "shuffled_labels",
+      "learn": "all",
+      "shuffle_labels": true
+    },
+    {
+      "name": "half_memory",
+      "learn": "all",
+      "memory_fraction": 0.5
+    },
+    {
+      "name": "quarter_memory",
+      "learn": "all",
+      "memory_fraction": 0.25
+    },
+    {
+      "name": "top1",
+      "learn": "all",
+      "topk_exact": 1
+    },
+    {
+      "name": "top32",
+      "learn": "all",
+      "topk_exact": 32
+    },
+    {
+      "name": "temperature_01",
+      "learn": "all",
+      "temperature": 0.1
+    },
+    {
+      "name": "temperature_04",
+      "learn": "all",
+      "temperature": 0.4
+    },
+    {
+      "name": "exclude80",
+      "learn": "all",
+      "cluster_level": 80
+    },
+    {
+      "name": "exclude60",
+      "learn": "all",
+      "cluster_level": 60
+    },
+    {
+      "name": "fixed_half_blend",
+      "learn": "all",
+      "blend": "half"
+    },
+    {
+      "name": "no_blend",
+      "learn": "all",
+      "blend": "one"
+    }
+  ]
+}
