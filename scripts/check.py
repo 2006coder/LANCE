@@ -6,6 +6,10 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 ENV = {**os.environ, "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1"}
 
+subprocess.run(
+    [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-p", "test_loss_contrasts.py"],
+    cwd=ROOT, env=ENV, check=True,
+)
 subprocess.run([sys.executable, "tests/test_lance4r.py"], cwd=ROOT, env=ENV, check=True)
 for study in ("exploratory", "pilot", "additive", "full_objective"):
     directory = ROOT / "ablations" / study
